@@ -23,7 +23,7 @@ mkdir "img_generadas"
 for ((i=1; i<=$num_img; i++)); do
   name=$(generate_random_name)
   filename="${name}_image_$i.jpg"
-  wget -qO "img_generadas/$filename" "https://thispersondoesnotexist.com/image"
+  wget -qO "img_generadas/$filename" "https://thispersondoesnotexist.com"
   sleep 1  # Espero 1 segundo entre descargas para no saturar el servicio
 done
 
@@ -34,7 +34,10 @@ tar -cf "$archivo_comprimido" "./img_generadas"
 echo "Se ha completado con exito la tarea, imagenes comprimidas en $zipfile"
 
 # Por ultimo creo la suma de verificacion y la guardo junto a las imagenes comprimidas
-checksum=$(md5sum "$archivo_comprimido" | awk '{ print $1 }')
+echo "Generando suma_verificacion.txt"
+suma_verificacion=$(md5sum "$archivo_comprimido" | awk '{print $1}')
+archivo_suma_verificacion="suma_verificacion.txt"
+echo "$suma_verificacion" > "$archivo_suma_verificacion"
 
 #Por ultimo borro las imagenes descargas
 rm -r "img_generadas"
