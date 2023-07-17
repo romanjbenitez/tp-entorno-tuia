@@ -16,8 +16,9 @@ echo "Aplicativo para procesar un lote de imagenes"
 		 echo "Saliendo..." 
 		 break
 	  elif [ "$entrada" == "1" ]; then 
-		 echo "Generando imagenes..."
-		 break 
+		 echo "Ingrese la cantidad de imagenes que desea generar"
+		 read num_img
+		 ./generar.sh "$num_img"
 	  elif [ "$entrada" == "2" ]; then
 		 echo "Ingrese la ruta del archivo comprimido de imágenes: "
    		 read ruta_imagenes
