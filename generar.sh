@@ -22,7 +22,7 @@ mkdir "img_generadas"
 # Descargo las imágenes y le asigno nombres aleatorios
 for ((i=1; i<=$num_img; i++)); do
   name=$(generate_random_name)
-  filename="${name}_image_$i.jpg"
+  filename="${name}.jpg"
   wget -qO "img_generadas/$filename" "https://thispersondoesnotexist.com"
   sleep 1  # Espero 1 segundo entre descargas para no saturar el servicio
 done
@@ -30,7 +30,7 @@ done
 echo "Comprimiendo archivo de imagenes..."
 # Una vez descargadas las imagenes creo un archivo comprimido utilizando tar
 archivo_comprimido="img_generadas.tar"
-tar -cf "$archivo_comprimido" "./img_generadas"
+tar -cf "$archivo_comprimido" -C "img_generadas" .
 echo "Se ha completado con exito la tarea, imagenes comprimidas en $zipfile"
 
 # Por ultimo creo la suma de verificacion y la guardo junto a las imagenes comprimidas
