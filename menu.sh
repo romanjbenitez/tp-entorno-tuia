@@ -31,8 +31,8 @@ echo "Aplicativo para procesar un lote de imagenes"
 		 read ruta_imagenes
 		 ./procesar.sh "$ruta_imagenes"
 	  elif [ "$entrada" ==  "4" ]; then 
-		 echo "Generando lista..."
-		 break
+		 
+		./comprimir.sh
 	  else 
 		 echo "El numero ingresado es incorrecto, por favor ingrese otro numero: "
 	  fi
