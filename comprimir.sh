@@ -16,7 +16,7 @@ grep -E '^[A-Z][a-z]+' lista_imagenes.txt > lista_nombres_validos.txt >/dev/null
 grep -E '^[A-Z][a-z]+a\.jpg' lista_imagenes.txt | wc -l > total_nombres_con_a.txt >/dev/null 2>&1
 
 # Crear archivo comprimido con los archivos generados y todas las imágenes
-tar -czvf imagenes.tar.gz lista_imagenes.txt lista_nombres_validos.txt total_nombres_con_a.txt "$directorio_imagenes"/*.jpg >/dev/null
+tar -czvf /output/imagenes.tar.gz lista_imagenes.txt lista_nombres_validos.txt total_nombres_con_a.txt "$directorio_imagenes"/*.jpg >/dev/null
 
 # Eliminar archivos de texto generados
 rm lista_imagenes.txt lista_nombres_validos.txt total_nombres_con_a.txt
@@ -24,5 +24,5 @@ rm lista_imagenes.txt lista_nombres_validos.txt total_nombres_con_a.txt
 
 echo "Operacion exitosa :D"
 # Permitir acceso al archivo comprimido desde fuera del contenedor
-chmod +r imagenes.tar.gz
+
 
