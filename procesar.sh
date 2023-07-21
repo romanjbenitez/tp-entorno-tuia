@@ -22,9 +22,6 @@ for imagen in "$path_imagenes"/*.jpg; do
         if [[ "$nombre_sin_extension" == [A-Z]* && "$nombre_sin_extension" == *[!A-Z]* ]]; then
             # Procesar la imagen con ImageMagick
             convert "$imagen" -gravity center -resize 512x512+0+0 -extent 512x512 "imagenes_procesadas/$nombre_sin_extension.jpg"
-            echo "Imagen procesada: $nombre_imagen"
-        else
-            echo "Imagen sin procesar: $nombre_imagen (nombre inválido)"
         fi
     fi
 done
